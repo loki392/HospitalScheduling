@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Appointments - MediSchedule</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+        }
+
+        header {
+            background: #1746d2;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h2 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        .container {
+            width: 85%;
+            margin: 40px auto;
+        }
+
+        .title {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .appointment {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .appointment h2 {
+            color: #1746d2;
+        }
+
+        .status {
+            display: inline-block;
+            background: #d9f2df;
+            color: #237a35;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .no-appointment {
+            background: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            color: #666;
+        }
+
+        footer {
+            margin-top: 60px;
+            background: #172b75;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>🏥 MediSchedule</h2>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="doctors.html">Doctors</a>
+        <a href="appointments.html">Appointments</a>
+    </nav>
+</header>
+
+<div class="container">
+
+    <div class="title">
+        <h1>My Appointments</h1>
+        <p>View your upcoming and previous hospital appointments.</p>
+    </div>
+
+    <div id="appointmentsList"></div>
+
+</div>
+
+<footer>
+    <p>Priority-Based Hospital Patient Scheduling System</p>
+    <p>Minor Project - 2026</p>
+</footer>
+
+<script>
+
+    const appointmentsList =
+        document.getElementById("appointmentsList");
+
+    const appointment =
+        JSON.parse(localStorage.getItem("appointment"));
+
+    if (appointment) {
+
+        appointmentsList.innerHTML = `
+
+            <div class="appointment">
+
+                <h2>👨‍⚕️ ${appointment.doctor}</h2>
+
+                <p>
+                    <strong>Specialization:</strong>
+                    ${appointment.specialization}
+                </p>
+
+                <p>
+                    <strong>Hospital:</strong>
+                    ${appointment.hospital}
+                </p>
+
+                <p>
+                    <strong>Patient Name:</strong>
+                    ${appointment.patientName}
+                </p>
+
+                <p>
+                    <strong>Date:</strong>
+                    ${appointment.date}
+                </p>
+
+                <p>
+                    <strong>Time:</strong>
+                    ${appointment.time}
+                </p>
+
+                <p>
+                    <strong>Priority:</strong>
+                    ${appointment.priority}
+                </p>
+
+                <span class="status">
+                    ✓ Confirmed
+                </span>
+
+            </div>
+
+        `;
+
+    } else {
+
+        appointmentsList.innerHTML = `
+
+            <div class="no-appointment">
+
+                <h2>📅 No Appointments</h2>
+
+                <p>
+                    You don't have any appointments yet.
+                </p>
+
+                <p>
+                    Go to Doctors and book an appointment.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+</script>
+
+</body>
+</html>
