@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Dashboard - MediSchedule</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b5ed7;
+            color: white;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .welcome {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .welcome h1 {
+            color: #123b66;
+            margin-bottom: 10px;
+        }
+
+        .welcome p {
+            color: #666;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            color: #123b66;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0b5ed7;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 7px;
+            text-decoration: none;
+        }
+
+        .btn.green {
+            background: #198754;
+        }
+
+        .btn.orange {
+            background: #fd7e14;
+        }
+
+        .btn.purple {
+            background: #6f42c1;
+        }
+
+        .appointment {
+            margin-top: 30px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .appointment h2 {
+            color: #123b66;
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 7px 15px;
+            border-radius: 20px;
+            background: #fff3cd;
+            color: #664d03;
+        }
+
+        footer {
+            background: #123b66;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 700px) {
+            header {
+                padding: 20px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">🏥 MediSchedule</div>
+
+    <a href="login.html" class="logout">
+        Logout
+    </a>
+
+</header>
+
+<div class="container">
+
+    <div class="welcome">
+
+        <h1>Welcome, Patient 👋</h1>
+
+        <p>
+            Manage your hospital appointments and find available doctors.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">👨‍⚕️</div>
+
+            <h2>Search Doctors</h2>
+
+            <p>
+                Search doctors by specialization and check
+                their available appointment slots.
+            </p>
+
+            <a href="#" class="btn">
+                Search Doctors
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">📅</div>
+
+            <h2>Book Appointment</h2>
+
+            <p>
+                Select a doctor, date, available time slot,
+                and priority to book an appointment.
+            </p>
+
+            <a href="#" class="btn green">
+                Book Appointment
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">⏰</div>
+
+            <h2>Check Availability</h2>
+
+            <p>
+                View available doctor time slots before
+                booking your appointment.
+            </p>
+
+            <a href="#" class="btn orange">
+                Check Slots
+            </a>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">📋</div>
+
+            <h2>My Appointments</h2>
+
+            <p>
+                View your upcoming and previous hospital
+                appointments.
+            </p>
+
+            <a href="#" class="btn purple">
+                View Appointments
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="appointment">
+
+        <h2>Appointment Status</h2>
+
+        <p>
+            No appointments have been booked yet.
+        </p>
+
+        <br>
+
+        <span class="status">
+            No Active Appointment
+        </span>
+
+    </div>
+
+</div>
+
+<footer>
+
+    <p>Priority-Based Hospital Patient Scheduling System</p>
+    <p>Minor Project - 2026</p>
+
+</footer>
+
+</body>
+</html>

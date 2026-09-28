@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Doctor Availability - MediSchedule</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fb;
+            color: #1f2937;
+        }
+
+        /* Header */
+
+        header {
+            background: #0b5ed7;
+            color: white;
+
+            padding: 20px 60px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Container */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 40px auto;
+        }
+
+        /* Page Title */
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .title h1 {
+            color: #123b66;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .title p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Doctor Information */
+
+        .doctor-info {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+        }
+
+        .doctor-info h2 {
+            color: #123b66;
+            margin-bottom: 8px;
+        }
+
+        .specialization {
+            color: #0b5ed7;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .doctor-details {
+            margin-top: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Date Selection */
+
+        .date-box {
+            background: white;
+
+            padding: 25px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+
+            margin-bottom: 25px;
+        }
+
+        .date-box h2 {
+            color: #123b66;
+            margin-bottom: 15px;
+        }
+
+        .date-box label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .date-box input {
+            padding: 12px;
+
+            width: 280px;
+
+            border: 1px solid #ccc;
+
+            border-radius: 7px;
+
+            font-size: 15px;
+        }
+
+        /* Time Slots */
+
+        .slots {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 12px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+        }
+
+        .slots h2 {
+            color: #123b66;
+
+            margin-bottom: 10px;
+        }
+
+        .slot-description {
+            color: #666;
+
+            margin-bottom: 25px;
+        }
+
+        .slot-container {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
+        }
+
+        .slot {
+            padding: 15px 25px;
+
+            border: 2px solid #198754;
+
+            color: #198754;
+
+            background: #f0fff4;
+
+            border-radius: 8px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .slot:hover {
+            background: #198754;
+            color: white;
+        }
+
+        .slot.selected {
+            background: #198754;
+            color: white;
+        }
+
+        /* Booking Button */
+
+        .book-btn {
+            margin-top: 30px;
+
+            padding: 14px 30px;
+
+            background: #0b5ed7;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+        }
+
+        .book-btn:hover {
+            background: #084298;
+        }
+
+        /* Message */
+
+        .message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            background: #d1e7dd;
+
+            color: #0f5132;
+
+            border-radius: 8px;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #123b66;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 20px;
+
+            margin-top: 50px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            header {
+                padding: 20px;
+            }
+
+            .date-box input {
+                width: 100%;
+            }
+
+            .slot-container {
+                flex-direction: column;
+            }
+
+            .slot {
+                text-align: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="logo">
+        🏥 MediSchedule
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="doctors.html">
+            Doctors
+        </a>
+
+    </nav>
+
+</header>
+
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+
+    <!-- TITLE -->
+
+    <div class="title">
+
+        <h1>
+            Doctor Availability
+        </h1>
+
+        <p>
+            Check available appointment slots before booking.
+        </p>
+
+    </div>
+
+
+    <!-- DOCTOR INFORMATION -->
+
+    <div class="doctor-info">
+
+        <h2>
+            👨‍⚕️ Dr. Arun Kumar
+        </h2>
+
+        <p class="specialization">
+            Cardiologist
+        </p>
+
+
+        <div class="doctor-details">
+
+            <p>
+                <strong>Hospital:</strong>
+                MediCare Hospital
+            </p>
+
+            <p>
+                <strong>Experience:</strong>
+                10 years
+            </p>
+
+            <p>
+                <strong>Availability:</strong>
+                Monday - Saturday
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- DATE -->
+
+    <div class="date-box">
+
+        <h2>
+            Select Appointment Date
+        </h2>
+
+        <label for="appointmentDate">
+            Choose Date
+        </label>
+
+        <input
+            type="date"
+            id="appointmentDate">
+
+    </div>
+
+
+    <!-- TIME SLOTS -->
+
+    <div class="slots">
+
+        <h2>
+            Available Time Slots
+        </h2>
+
+        <p class="slot-description">
+            Select one available time slot for your appointment.
+        </p>
+
+
+        <div class="slot-container">
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                10:00 AM
+
+            </div>
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                10:30 AM
+
+            </div>
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                11:00 AM
+
+            </div>
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                11:30 AM
+
+            </div>
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                12:00 PM
+
+            </div>
+
+
+            <div
+                class="slot"
+                onclick="selectSlot(this)">
+
+                12:30 PM
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="book-btn"
+            onclick="continueBooking()">
+
+            Continue to Booking
+
+        </button>
+
+
+        <div
+            id="message"
+            class="message">
+
+            Time slot selected successfully.
+            You can continue to appointment booking.
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        Priority-Based Hospital Patient Scheduling System
+    </p>
+
+    <p>
+        Minor Project - 2026
+    </p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+    let selectedSlot = null;
+
+
+    function selectSlot(element) {
+
+        const slots =
+            document.querySelectorAll(".slot");
+
+
+        slots.forEach(function(slot) {
+
+            slot.classList.remove("selected");
+
+        });
+
+
+        element.classList.add("selected");
+
+
+        selectedSlot =
+            element.innerText;
+
+    }
+
+
+    function continueBooking() {
+
+        const date =
+            document
+            .getElementById("appointmentDate")
+            .value;
+
+
+        if (date === "") {
+
+            alert(
+                "Please select an appointment date."
+            );
+
+            return;
+
+        }
+
+
+        if (selectedSlot === null) {
+
+            alert(
+                "Please select an available time slot."
+            );
+
+            return;
+
+        }
+
+
+        document
+        .getElementById("message")
+        .style.display = "block";
+
+
+        document
+        .getElementById("message")
+        .innerHTML =
+            "Appointment slot selected: "
+            + selectedSlot
+            + "<br>Date: "
+            + date
+            + "<br><br>You can continue to appointment booking.";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

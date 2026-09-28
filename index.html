@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Priority-Based Hospital Patient Scheduling System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8fb;
+            color: #1f2937;
+        }
+
+        header {
+            background: #0b5ed7;
+            color: white;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+            background: white;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            color: #123b66;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0b5ed7;
+            color: white;
+            padding: 14px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .btn.secondary {
+            background: #198754;
+        }
+
+        .hero-icon {
+            font-size: 180px;
+        }
+
+        .features {
+            padding: 50px 10%;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 32px;
+            margin-bottom: 35px;
+            color: #123b66;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #123b66;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #123b66;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .hero-icon {
+                font-size: 100px;
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🏥 MediSchedule</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#">Doctors</a>
+        <a href="#">Appointments</a>
+        <a href="#">Login</a>
+    </nav>
+</header>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>Priority-Based Hospital Patient Scheduling</h1>
+
+        <p>
+            Book hospital appointments easily based on doctor
+            availability and patient priority. Our system helps
+            organize appointments and reduce unnecessary waiting time.
+        </p>
+
+        <a href="#" class="btn">Book Appointment</a>
+        <a href="register.html" class="btn secondary">Patient Registration</a>
+
+    </div>
+
+    <div class="hero-icon">
+        🏥
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2>Our System Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">👤</div>
+            <h3>Patient Registration</h3>
+            <p>
+                Patients can register and create their account
+                for hospital appointment management.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">👨‍⚕️</div>
+            <h3>Doctor Search</h3>
+            <p>
+                Search for doctors and check their specialization
+                and available appointment slots.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📅</div>
+            <h3>Online Booking</h3>
+            <p>
+                Book an appointment using available doctor
+                time slots.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">⭐</div>
+            <h3>Priority Scheduling</h3>
+            <p>
+                Appointments can consider patient priority
+                while scheduling.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>Priority-Based Hospital Patient Scheduling System</p>
+    <p>Minor Project - 2026</p>
+</footer>
+
+</body>
+</html>
